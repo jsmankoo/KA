@@ -1,0 +1,56 @@
+.Communities
+  .ExploreWrapper
+    size 100% 100px
+    relative()
+    .Explore
+      align(b)
+      size 325px 40px
+      .Text
+        align(v)
+        left 0px
+        h4()
+        margin auto
+      .Select
+        align(v)
+        right 0px
+        .Value
+          relative()
+          size 200px 40px
+          border 1px solid black
+          cursor: pointer
+          &:hover
+          &:focus
+            background-color grey
+            color white
+          .Text
+            align(v)
+            left 10px
+          i
+            align(v)
+            right 10px
+        .List
+          absolute top 40px right 0px
+          z-index 10000
+          background-color white
+        // <div className="Select">
+        //   <div className="Value" onClick={this.toggleCommunities}>
+        //     <div className="Text">
+        //       {data.getIn(['Community'])}
+        //     </div>
+        //     <i className={`btr bt-angle-${data.getIn(['open']) ? 'up' : 'down'}`} />
+        //   </div>
+        //   <Motion style={{
+        //     height: data.getIn(['open']) ? spring(500, {stiffness: 100, damping: 40}) : spring(0, presets.gentle),
+        //     fade: data.getIn(['open']) ? spring(1, {stiffness: 100, damping: 40}) : spring(0, presets.gentle)
+        //   }}>
+        //     {
+        //       ({height, fade})=>(
+        //         <div className="List" style={{
+        //           height: height,
+        //           opacity: fade
+        //         }}>
+        //           {
+        //             data.getIn(['Communities']).map((Community, index)=>(
+        //               <div className="Value" key={index}>
+        //                 <div className="Text">
+        //                   {Community}

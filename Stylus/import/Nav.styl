@@ -1,0 +1,165 @@
+.Nav
+  size 100% auto
+  .Mobile
+    center()
+    margin auto 20px
+    border-bottom 3px solid black
+    .Search
+      span(2/10)
+      height 50px
+      relative()
+      i
+        align(v)
+        cursor: pointer
+        font-size 35px
+        color red
+        hover-color grey true
+    .Brand
+      span(6/10)
+      height 50px
+      relative()
+      a
+        align(b)
+        text-align: center
+        color black
+        font-size 25px
+        size 100% auto
+        hover-color grey true
+    .MenuIcon
+      span(2/10)
+      height 50px
+      relative()
+      i
+        align(v)
+        right 0px
+        cursor: pointer
+        font-size 35px
+        color black
+        hover-color grey true
+    .Menu
+      fixed top 50px right 0px
+      padding 0px 20px
+      size 100% auto
+      z-index 10000
+      overflow hidden
+      .MenuWrapper
+        background-color rgba(black, 0.5)
+        size 100% auto
+        .Category
+          size 100% auto
+          overflow hidden
+          .Border
+            border 1px solid white
+          .CategoryName
+            relative()
+            cursor pointer
+            .Text
+              h2()
+              color white
+              margin auto
+              padding 0px 20px
+            i
+              font-size: 30px
+              align(v)
+              right 20px
+              margin auto
+              color white
+            a
+              h2()
+              color white
+              padding 0px 20px
+              hover-color true black
+          .SubMenu
+            .LinkWrapper
+              relative()
+              height 40px
+              a
+                align(v)
+                font-size 20px
+                left 40px
+                color white
+                hover-color true black
+    .Input
+      fixed top 50px left 0px
+      padding 0px 20px
+      size 100% auto
+      z-index 10000
+      overflow hidden
+      .InputWrapper
+        background-color rgba(black, 0.5)
+        size 100% 100%
+        relative()
+        input
+          h4()
+          margin auto
+          align(b)
+          text-align: center
+
+  .Tablet
+    center()
+    margin auto 20px
+    border-bottom 3px solid black
+    .Search
+      column(1/4)
+      height 50px
+      relative()
+      input
+        align(v)
+        size 225px 30px
+        padding 0px 10px
+        border 1px solid black
+      i
+        align(v)
+        left 195px
+        font-size 20px
+        color red
+    .Brand
+      column(1/2)
+      height 50px
+      relative()
+      a
+        align(b)
+        text-align: center
+        color black
+        font-size 25px
+        size 100% auto
+        hover-color grey true
+    .MenuIcon
+      column(1/4)
+      relative()
+      height 50px
+      i
+        align(v)
+        right 0px
+        font-size 35px
+        cursor: pointer
+        color black
+        hover-color grey true
+    .Menu
+      fixed top 0px right 0px
+      z-index: 10000
+      size 300px 100%
+      background-color rgba(black, 0.75)
+      .Close
+        size 100% 50px
+        relative()
+        i
+          align(v)
+          right 20px
+          font-size 35px
+          cursor pointer
+          color white
+          hover-color black true
+      .Category
+        margin-left: 40px
+        .Border
+          border 1px solid black
+          size 150px auto
+        .CategoryName a
+          h2()
+          text-decoration: none
+          color white
+          hover-color black true
+          // <div className="Category">
+          //   <div className="Border" />
+          //   <div className="CategoryName">

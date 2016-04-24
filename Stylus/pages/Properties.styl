@@ -1,0 +1,93 @@
+.Properties
+  center()
+  size 100% auto
+  background-image: BGPattern
+  padding-bottom 100px
+  .FiltersWrapper
+    center(1070px)
+    padding 0px 20px
+    .Filters
+      size 100% auto
+      border-bottom 2px solid black
+      .Row
+        center(650px)
+        .Col
+          span(1/4)
+          relative()
+          height 100px
+          .Select
+            align(b)
+            cursor: pointer
+            color black
+            hover-color red true
+            .text
+              align(v)
+              right 0px
+            i
+              align(v)
+              left 0px
+              color red
+              font-size 10px
+              &.btr
+                font-size 8px
+        .All
+          .Select
+            size 40px auto
+        .Featured
+          .Select
+            size 90px auto
+        .Sold
+          .Select
+            size 58px auto
+        .Search
+          .Select
+            size 115px auto
+            i.btr
+              font-size 16px
+        .Border
+          align(v)
+          size 2px 60px
+          border-left 2px solid black
+  .PropertiesWrapper
+    center(1070px)
+    padding 0px 20px
+    .Property
+      display: block
+      margin: 20px auto 40px
+      cursor: pointer
+      color black
+      hover-fade 0.80
+      +below(767px)
+        column(1)
+      +above(768px)
+        column(1/2, cycle: 2)
+        &.last
+          column(1)
+      .Pic
+        display: block
+        margin: auto
+        size 540px 350px
+        max-width: 100%
+        relative()
+        .Status
+          absolute bottom 0px left 0px
+          background-color: rgba(red, 0.5)
+          color white
+          font-size: 16px
+          padding: 10px 20px
+      .Address
+        text-align: center
+        font-size 20px
+        padding 25px 0px
+      .Info
+        center(200px)
+        text-align: center
+        .Price
+          column(1/2)
+          font-size 14px
+        .Bed
+          column(1/4)
+          font-size 14px
+        .Bath
+          column(1/4)
+          font-size 14px

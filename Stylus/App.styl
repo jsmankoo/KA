@@ -1,0 +1,35 @@
+@import "jeet"
+@import "axis"
+@import "rupture"
+
+@import "./variables.styl"
+
+// resets
+global-reset()
+normalize-css()
+// fluid-media()
+// print-styles()
+border-box-html()
+
+@import "./import/Nav"
+@import "./import/Foot"
+@import "./import/Featured"
+@import "./import/Title"
+@import "./import/Profile"
+@import "./import/PropertyInfo"
+@import "./import/ContactMini"
+
+//pages
+@import "./pages/Home"
+@import "./pages/About"
+@import "./pages/Contact"
+@import "./pages/Properties"
+@import "./pages/Property"
+@import "./pages/Communities"
+
+html body #root .App
+  font-family mainFont
+  // debug()
+  a
+    text-decoration: none
+    cursor: pointer

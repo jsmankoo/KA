@@ -1,0 +1,72 @@
+.Featured
+  size 100% auto
+  .HeadWrapper
+    center(1150px)
+    .HeadSection
+      display: block
+      relative()
+      margin auto 20px
+      border-bottom 3px solid black
+      height auto
+      .Mobile
+        size 100% 100%
+        a
+          color black
+          hover-color grey true
+          h3
+            h3()
+            margin auto
+            line-height: 25px
+            size 100% auto
+            text-align center
+      .Tablet
+        size 100% 100%
+        relative()
+        h3
+          h3()
+          margin 10px auto
+          line-height: 25px
+          text-align center
+        a
+          color black
+          hover-color grey true
+          align(v)
+          right 0px
+          .all
+            size 60px 25px
+            relative()
+            .text
+              align(v)
+              left 0px
+              font-size: 16px
+            i
+              align(v)
+              right 0px
+              font-size: 25px
+      .Navigation
+        align(v)
+        right 100px
+        i
+          font-size: 8px
+          padding 5px
+          color black
+          hover-color red true
+          cursor: pointer
+          &.active
+            color red
+  .Navigation.Mobile
+    text-align: center
+    margin 10px auto
+    i
+      font-size: 8px
+      padding 5px
+      color black
+      hover-color red true
+      cursor: pointer
+      &.active
+        color red
+  .SlideShow
+    +below(767px)
+      margin: 0px auto auto
+    +above(768px)
+      margin: 30px auto auto

@@ -1,0 +1,107 @@
+.Property
+  size 100% auto
+  background-image: BGPattern
+  .Mobile
+    margin: auto
+    .SlideShow
+      relative()
+      background-color: white
+      .PrevSlide
+        z-index 1000
+        align(v)
+        left 30px
+        i
+          cursor: pointer
+          font-size 40px
+          color white
+          hover-color red true
+      .NextSlide
+        z-index 1000
+        align(v)
+        right 30px
+        i
+          cursor: pointer
+          font-size 40px
+          color white
+          hover-color red true
+      .Navigation
+        z-index 1000
+        align(h)
+        bottom 10px
+        i
+          cursor: pointer
+          color black
+          padding 5px
+          font-size: 8px
+          &:hover
+          &:focus
+          &.active
+            color red
+      .Slides
+        size 100% auto
+        .Slide
+          size 100% auto
+          margin: auto
+          padding 0px 20px 40px
+          .Photo
+            .Pic
+              display: block
+              size 100% 400px
+              .Caption
+                absolute bottom 40px left 20px
+                background-color: rgba(red, 0.5)
+                color white
+                padding 10px 20px
+
+
+
+  .Tablet
+    margin: auto
+    .SlideShow
+      relative()
+      background-color: white
+      .PrevSlide
+        z-index 1000
+        align(v)
+        left 30px
+        i
+          cursor: pointer
+          font-size 40px
+          color white
+          hover-color red true
+      .NextSlide
+        z-index 1000
+        align(v)
+        right 30px
+        i
+          cursor: pointer
+          font-size 40px
+          color white
+          hover-color red true
+      .Navigation
+        z-index 1000
+        absolute bottom 10px right 30px
+        i
+          cursor: pointer
+          color black
+          padding 5px
+          font-size: 8px
+          &:hover
+          &:focus
+          &.active
+            color red
+      .Slides
+        size 100% 690px
+        .Slide
+          size 100% 690px
+          margin: auto
+          padding 0px 20px
+          .Photo
+            .Pic
+              display: block
+              size 100% 690px
+              .Caption
+                absolute bottom 40px left 20px
+                background-color: rgba(red, 0.5)
+                color white
+                padding 10px 20px

@@ -19,7 +19,7 @@ const Routes = createClass({
           <IndexRoute component={Home} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
-          <Route path="/properties" component={Properties} />
+          <Route path="/properties/:uid" component={Properties} />
           <Route path="/property/:uid" component={Property} />
           <Route path="/communities" component={Communities}>
             <Route path="/communities/:uid" component={Community} />

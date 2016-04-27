@@ -25,7 +25,7 @@ const Profile = createClass({
             </div>
             <div className="SocialMediaWrapper">
               <div className="SocialMedia">
-                <a href={email} target='_blank'><i className='btr bt-envelope' /></a>
+                <a href={`mailto:${email}`} target='_blank'><i className='btr bt-envelope' /></a>
                 <a href={facebook} target='_blank'><i className='fab fab-facebook-alt' /></a>
                 <a href={twitter} target='_blank'><i className='fab fab-twitter' /></a>
                 <a href={instagram} target='_blank'><i className='fab fab-instagram' /></a>
@@ -76,7 +76,7 @@ const Profile = createClass({
               <div className="HeadSection">
                 <Link to='/contact'><h3>{name}</h3></Link>
                 <div className="SocialMedia">
-                  <a href={email} target='_blank'><i className='btr bt-envelope' /></a>
+                  <a href={`mailto:${email}`} target='_blank'><i className='btr bt-envelope' /></a>
                   <a href={facebook} target='_blank'><i className='fab fab-facebook-alt' /></a>
                   <a href={twitter} target='_blank'><i className='fab fab-twitter' /></a>
                   <a href={instagram} target='_blank'><i className='fab fab-instagram' /></a>

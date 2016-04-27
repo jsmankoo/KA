@@ -54,7 +54,7 @@
       height 500px
       a.item
         display: block
-        margin auto 15px
+        margin auto 20px
         color black
         &:hover
         &:focus
@@ -83,12 +83,15 @@
           .Price
             column(1/2)
             font-size 14px
+            padding 2px 0px
           .Bed
             column(1/4)
             font-size 14px
+            padding 2px 0px
           .Bath
             column(1/4)
             font-size 14px
+            padding 2px 0px
 
     #Communities
       center(100%)
@@ -96,6 +99,10 @@
         height 300px
       +above(768px)
         height 600px
+        .owl-controls
+          absolute left 0px top -25px
+          text-align: center
+          size 100% auto
       .item
         .Pic
           +below(767px)

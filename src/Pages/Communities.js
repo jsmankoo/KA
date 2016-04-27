@@ -1,88 +1,112 @@
-import React, {createClass} from 'react';
-import {fromJS, Map} from 'immutable';
+import React from 'react';
+import {Link} from 'react-router';
+import {connect} from 'react-redux';
 import {Motion, spring, presets} from 'react-motion';
+import {fromJS} from 'immutable';
+import Helmet from 'react-helmet';
 
-const Communities = createClass({
-  getInitialState(){
-    return {
-      data: Map()
-    };
-  },
+const Communities = React.createClass({
   componentDidMount(){
-    const {children, community} = this.props;
-    this.setState({
-      data: fromJS({
-        Community: community ? community : 'Select ...',
-        open: false,
-        Communities: ['Soma', 'Somaa', 'Somaaa']
-      })
-    });
-  },
-  toggleCommunities(){
-    const {data} = this.state;
-    this.setState({
-      data: data.updateIn(['open'], (open)=>(!open))
-    });
-  },
-  setCommunity(community){
-    return ()=>{
-      const {data} = this.state;
-      this.setState({
-        data: data.updateIn(['open'], (open)=>(!open))
-                .updateIn(['Community'], (Comm)=>(community))
+    const {initCommunities} = this.props;
+    Prismic.api('https://khristianavelar.prismic.io/api')
+      .then((api)=>api.query(Prismic.Predicates.at('document.type', 'community')))
+      .then(({results})=>{
+        initCommunities(fromJS(results));
       });
-    };
   },
-  render() {
-    const {children, community} = this.props;
-    const {data} = this.state;
+  render(){
+    const {children, Communities, Community, toggleSelect, changeCommunity} = this.props;
+    if(!Communities.loaded) return <div />;
     return (
-      <div className="Communities">
-        <div className="ExploreWrapper">
-          <div className="Explore">
-            <div className="Text">
+      <div className='Communities'>
+        <Helmet
+          title='Communities'
+          meta={[
+            {name:'description', content: 'Communities description'}
+          ]}
+        />
+        <div className='ExploreWrapper'>
+          <div className='Explore'>
+            <div className='ExploreText'>
               EXPLORE...
             </div>
-            {
-              data.getIn(['Community']) &&
-              <div className="Select">
-                <div className="Value" onClick={this.toggleCommunities}>
-                  <div className="Text">
-                    {data.getIn(['Community'])}
+            <div className='Select' onClick={toggleSelect}>
+              <h5>{Community.name}</h5>
+              <i className='btr bt-angle-down' />
+            </div>
+            <Motion style={{
+              height: Community.open ? spring( (30*Communities.data.length), presets.gentle) : spring(0, presets.gentle),
+              fade: Community.open ? spring(1, presets.gentle) : spring(1, presets.gentle)
+            }}>
+              {
+                ({fade, height})=>(
+                  <div className='SelectCommunity' style={{
+                    opacity: fade,
+                    height: height
+                  }}>
+                    {
+                      Communities.data.map(({data, uid}, index)=>(
+                        <Link
+                            onClick={()=>{
+                              toggleSelect(),
+                              changeCommunity(data['community.Name'].value)
+                            }}
+                            to={`/Communities/${uid}`}
+                            className='Community'
+                            key={index}
+                          >
+                            <h5>{data['community.Name'].value}</h5>
+                        </Link>
+                      ))
+                    }
                   </div>
-                  <i className={`btr bt-angle-${data.getIn(['open']) ? 'up' : 'down'}`} />
-                </div>
-                <Motion style={{
-                  height: data.getIn(['open']) ? spring(120, presets.gentle) : spring(0, presets.gentle),
-                  fade: data.getIn(['open']) ? spring(1, presets.gentle) : spring(0, presets.gentle)
-                }}>
-                  {
-                    ({height, fade})=>(
-                      <div className="List" style={{
-                        height: height,
-                        opacity: fade
-                      }}>
-                        {
-                          data.getIn(['Communities']).map((Community, index)=>(
-                            <div className="Value" key={index} onClick={this.toggleCommunities}>
-                              <div className="Text">
-                                {Community}
-                              </div>
-                            </div>
-                          ))
-                        }
-                      </div>
-                    )
-                  }
-                </Motion>
-              </div>
-            }
+                )
+              }
+            </Motion>
           </div>
         </div>
-        {children}
+        <div className='CommunityWrapper'>
+          {children}
+        </div>
       </div>
     );
   }
 });
 
-export default Communities;
+const mapStateToProps = ({Communities})=>{
+  // Communities returns {
+  //   Communities:{
+  //     data: [],
+  //     loaded: false
+  //   },
+  //   Community:{
+  //     'open':false,
+  //     'name':'Select...'
+  //   }
+  // }
+  return Communities.toJS();
+};
+
+const mapDispatchToProps = (dispatch)=>{
+  return {
+    initCommunities(data){
+      return dispatch({
+        type: 'COMMUNITIES_INIT',
+        value: data
+      });
+    },
+    toggleSelect(){
+      return dispatch({
+        type: 'COMMUNITIES_TOGGLE_SELECT'
+      });
+    },
+    changeCommunity(name){
+      return dispatch({
+        type: 'COMMUNITIES_CHANGE_COMMUNITY',
+        value: name
+      });
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Communities);

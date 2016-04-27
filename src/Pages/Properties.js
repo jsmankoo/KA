@@ -27,6 +27,7 @@ const Properties = createClass({
   },
   render() {
     const {Filter, Properties} = this.state;
+    const {routeParams} = this.props;
     return (
       <div className="Properties">
         <Helmet
@@ -79,6 +80,10 @@ const Properties = createClass({
         <div className="PropertiesWrapper">
           {
             Properties.filter(({tags})=>{
+                if(routeParams.uid === 'All') return true;
+                return tags.indexOf(routeParams.uid) >= 0;
+              })
+              .filter(({tags})=>{
                 if(Filter === 'All') return true;
                 return tags.indexOf(Filter) >= 0;
               })

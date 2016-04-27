@@ -13,7 +13,8 @@ import Profile from '../Components/Profile';
 const Home = createClass({
   getInitialState(){
     return {
-      data: Map()
+      data: Map(),
+      loaded: false
     };
   },
   componentDidMount(){
@@ -21,16 +22,18 @@ const Home = createClass({
       .then((api)=>api.query(Prismic.Predicates.at('my.home.uid', 'home')))
       .then(({results})=>{
         this.setState({
-          data: fromJS(results[0].data)
+          data: fromJS(results[0].data),
+          loaded: true
         });
       });
   },
   render() {
-    const {data} = this.state;
+    const {data, loaded} = this.state;
+    if(!loaded) return <div />;
     return (
       <div className="Home">
         <Helmet
-          title={data.getIn(['home.Title', 'value']) && data.getIn(['home.Title', 'value'])}
+          title={data.getIn(['home.Title', 'value'])}
           meta={[
             {name:'description', content: data.getIn(['home.Description', 'value']) && data.getIn(['home.Description', 'value'])}
           ]}
@@ -48,9 +51,9 @@ const Home = createClass({
               slidesToShow={2}
               height={500}
               id='featured'
-              autoPlay={false}>
+              link={`/properties/All`}>
               {
-                data.getIn(['home.Featured','value']) && data.getIn(['home.Featured','value']).map(
+                data.getIn(['home.Featured','value']).map(
                   (property, index)=>(
                     <Link to={`/property/${property.getIn(['Link', 'value', 'document', 'uid'])}`} className="item" key={index}>
                       <div className="Pic" style={{
@@ -79,14 +82,14 @@ const Home = createClass({
               }
             </Featured>
             <Profile
-              name={data.getIn(['home.Name','value']) && data.getIn(['home.Name','value'])}
-              DesktopPic={data.getIn(['home.DesktopPic','value','main','url']) && data.getIn(['home.DesktopPic','value','main','url'])}
-              MobilePic={data.getIn(['home.MobilePic','value','main','url']) && data.getIn(['home.MobilePic','value','main','url'])}
-              email={data.getIn(['home.Email', 'value', 'url']) && data.getIn(['home.Email', 'value', 'url'])}
-              facebook={data.getIn(['home.Facebook', 'value', 'url']) && data.getIn(['home.Facebook', 'value', 'url'])}
-              twitter={data.getIn(['home.Twitter', 'value', 'url']) && data.getIn(['home.Twitter', 'value', 'url'])}
-              instagram={data.getIn(['home.Instagram', 'value', 'url']) && data.getIn(['home.Instagram', 'value', 'url'])}
-              paragraph={data.getIn(['home.Markdown','value']) ? data.getIn(['home.Markdown','value']) : ''}
+              name={data.getIn(['home.Name','value'])}
+              DesktopPic={data.getIn(['home.DesktopPic','value','main','url'])}
+              MobilePic={data.getIn(['home.MobilePic','value','main','url'])}
+              email={data.getIn(['home.Email', 'value'])}
+              facebook={data.getIn(['home.Facebook', 'value', 'url'])}
+              twitter={data.getIn(['home.Twitter', 'value', 'url'])}
+              instagram={data.getIn(['home.Instagram', 'value', 'url'])}
+              paragraph={data.getIn(['home.Markdown','value'])}
               style={{
                 marginTop: 100
               }}/>
@@ -98,9 +101,10 @@ const Home = createClass({
                 marginTop: 150,
                 marginBottom: 100
               }}
-              autoPlay={false}>
+              autoPlay={false}
+              link={`/Communities`}>
               {
-                data.getIn(['home.Communities','value']) && data.getIn(['home.Communities','value']).map(
+                data.getIn(['home.Communities','value']).map(
                   (community, index)=>(
                     <div className="item" key={index}>
                       <div className="Pic" style={{

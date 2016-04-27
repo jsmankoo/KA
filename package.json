@@ -43,20 +43,27 @@
   "dependencies": {
     "autoprefixer-stylus": "^0.9.2",
     "axis": "^0.6.1",
+    "css-loader": "^0.23.1",
     "flexiblegs-stylus": "^5.5.1",
     "immutable": "^3.8.0",
+    "jeet": "^6.1.2",
     "marked": "^0.3.5",
     "react": "^0.14.6",
     "react-background-video": "^2.0.0",
     "react-dom": "^0.14.6",
     "react-helmet": "^3.0.1",
     "react-motion": "^0.4.2",
+    "react-redux": "^4.4.5",
     "react-responsive": "^1.1.2",
+    "react-router": "^2.3.0",
     "react-select": "^1.0.0-beta12",
     "react-swipeable": "^3.1.0",
     "react-waypoint": "^2.0.1",
+    "redux": "^3.5.2",
     "request": "^2.72.0",
     "rupture": "^0.6.1",
-    "stylus": "^0.54.2"
+    "style-loader": "^0.13.1",
+    "stylus": "^0.54.2",
+    "stylus-loader": "^2.0.0"
   }
 }

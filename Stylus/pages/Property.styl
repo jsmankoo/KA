@@ -2,106 +2,61 @@
   size 100% auto
   background-image: BGPattern
   .Mobile
-    margin: auto
-    .SlideShow
-      relative()
+    #jumbotron
       background-color: white
-      .PrevSlide
-        z-index 1000
-        align(v)
-        left 30px
-        i
-          cursor: pointer
-          font-size 40px
-          color white
-          hover-color red true
-      .NextSlide
-        z-index 1000
-        align(v)
-        right 30px
-        i
-          cursor: pointer
-          font-size 40px
-          color white
-          hover-color red true
-      .Navigation
-        z-index 1000
-        align(h)
-        bottom 10px
-        i
-          cursor: pointer
-          color black
-          padding 5px
-          font-size: 8px
-          &:hover
-          &:focus
-          &.active
-            color red
-      .Slides
+      size 100% 440px
+      .owl-controls
         size 100% auto
-        .Slide
-          size 100% auto
-          margin: auto
-          padding 0px 20px 40px
-          .Photo
-            .Pic
-              display: block
-              size 100% 400px
-              .Caption
-                absolute bottom 40px left 20px
-                background-color: rgba(red, 0.5)
-                color white
-                padding 10px 20px
+        text-align: center
+        .owl-page
+          &:hover
+          &.active
+            span
+              background-color red
+          span
+            background-color black
+            opacity: 1
+            size 8px 8px
+      .Photo
+        size 100% 400px
+        padding 0px 20px
+        .Pic
+          display: block
+          size 100% 400px
+          relative()
+          .Caption
+            absolute bottom 0px left 0px
+            background-color: rgba(red, 0.5)
+            color white
+            padding 10px 20px
 
 
 
   .Tablet
     margin: auto
-    .SlideShow
-      relative()
-      background-color: white
-      .PrevSlide
-        z-index 1000
-        align(v)
-        left 30px
-        i
-          cursor: pointer
-          font-size 40px
-          color white
-          hover-color red true
-      .NextSlide
-        z-index 1000
-        align(v)
-        right 30px
-        i
-          cursor: pointer
-          font-size 40px
-          color white
-          hover-color red true
-      .Navigation
-        z-index 1000
-        absolute bottom 10px right 30px
-        i
-          cursor: pointer
-          color black
-          padding 5px
-          font-size: 8px
+    #jumbotron
+      size 100% 730px
+      background-color white
+      .owl-controls
+        absolute bottom 10px right 20px
+        .owl-page
           &:hover
-          &:focus
           &.active
-            color red
-      .Slides
+            span
+              background-color red
+          span
+            background-color black
+            opacity: 1
+            size 8px 8px
+      .Photo
         size 100% 690px
-        .Slide
+        padding 0px 20px
+        .Pic
+          display: block
           size 100% 690px
-          margin: auto
-          padding 0px 20px
-          .Photo
-            .Pic
-              display: block
-              size 100% 690px
-              .Caption
-                absolute bottom 40px left 20px
-                background-color: rgba(red, 0.5)
-                color white
-                padding 10px 20px
+          relative()
+          .Caption
+            absolute bottom 0px left 0px
+            background-color: rgba(red, 0.5)
+            color white
+            padding 10px 20px

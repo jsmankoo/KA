@@ -1,56 +1,75 @@
 .Communities
+  relative()
+  background-image BGPattern
+  margin 20px auto auto
+  z-index: 0
   .ExploreWrapper
-    size 100% 100px
     relative()
+    size 100% 175px
+    z-index: 10000
     .Explore
       align(b)
-      size 325px 40px
-      .Text
-        align(v)
-        left 0px
-        h4()
-        margin auto
+      +below(767px)
+        text-align: center
+      +above(768px)
+        size 280px 30px
+      .ExploreText
+        font-weight: 700
+        +below(767px)
+          align(h)
+          top -25px
+        +above(768px)
+          align(v)
+          left 0px
       .Select
-        align(v)
-        right 0px
-        .Value
-          relative()
-          size 200px 40px
-          border 1px solid black
-          cursor: pointer
-          &:hover
-          &:focus
-            background-color grey
+        relative()
+        cursor: pointer
+        size 180px 30px
+        border 1px solid black
+        +above(768px)
+          align(v)
+          right 0px
+        &:hover
+          background-color grey
+          h5
+          i
             color white
-          .Text
+        h5
+          align(v)
+          left 10px
+        i
+          align(v)
+          right 10px
+          color red
+      .SelectCommunity
+        absolute top 30px right 0px
+        size 180px auto
+        overflow: hidden
+        z-index: 100000
+        .Community
+          relative()
+          z-index: 10000
+          background-color white
+          display: block
+          cursor: pointer
+          size 180px 30px
+          border 1px solid black
+          overflow: hidden
+          h5
+            color black
+          &:hover
+            background-color grey
+            h5
+            i
+              color white
+          h5
             align(v)
             left 10px
           i
             align(v)
             right 10px
-        .List
-          absolute top 40px right 0px
-          z-index 10000
-          background-color white
-        // <div className="Select">
-        //   <div className="Value" onClick={this.toggleCommunities}>
-        //     <div className="Text">
-        //       {data.getIn(['Community'])}
-        //     </div>
-        //     <i className={`btr bt-angle-${data.getIn(['open']) ? 'up' : 'down'}`} />
-        //   </div>
-        //   <Motion style={{
-        //     height: data.getIn(['open']) ? spring(500, {stiffness: 100, damping: 40}) : spring(0, presets.gentle),
-        //     fade: data.getIn(['open']) ? spring(1, {stiffness: 100, damping: 40}) : spring(0, presets.gentle)
-        //   }}>
-        //     {
-        //       ({height, fade})=>(
-        //         <div className="List" style={{
-        //           height: height,
-        //           opacity: fade
-        //         }}>
-        //           {
-        //             data.getIn(['Communities']).map((Community, index)=>(
-        //               <div className="Value" key={index}>
-        //                 <div className="Text">
-        //                   {Community}
+            color red
+
+  .CommunityWrapper
+    relative()
+    z-index: 1

@@ -3,22 +3,60 @@
   padding 0px 20px
   .Wrapper
     relative()
-    size 100% 250px
-    border-top: 2px solid black
+    +below(767px)
+      size 100% 400px
+      border-top: 2px solid black
+    +above(768px)
+      size 100% 250px
+      border-top: 2px solid black
     .Row
       align(b)
-      size 300px auto
+      +below(767px)
+        size 100% auto
+      +above(768px)
+        size 375px 150px
       .Pic
-        column(1/3)
+        +below(767px)
+          display: block
+          size 100% auto
+          margin-bottom 20px
+        +above(768px)
+          align(v)
+          left 0px
+        hover-fade 0.80
         img
-          size auto auto
+          size 125px 125px
+          display: block
+          margin: auto
       .Details
-        column(2/3)
+        +below(767px)
+          size 200px auto
+        +above(768px)
+          size 200px auto
+          align(v)
+          right 0px
         text-align: center
-        h5
-          h5()
-          border-bottom: 1px solid black
-        h4
-          h4()
-        i
-          font-size: 20px
+        display: block
+        margin: auto
+        .Name
+          color black
+          hover-color grey true
+          h5
+            h5()
+            margin auto
+            border-bottom: 1px solid black
+        .Cell
+          color black
+          hover-color grey true
+          h4
+            h4()
+        .Email
+          display: block
+          color black
+          hover-color grey true
+          i
+            font-size: 20px
+            float left
+          h5
+            font-size: 18px
+            float right

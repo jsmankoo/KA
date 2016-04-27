@@ -43,30 +43,34 @@
               align(v)
               right 0px
               font-size: 25px
-      .Navigation
-        align(v)
-        right 100px
-        i
-          font-size: 8px
-          padding 5px
-          color black
-          hover-color red true
-          cursor: pointer
-          &.active
-            color red
-  .Navigation.Mobile
-    text-align: center
-    margin 10px auto
-    i
-      font-size: 8px
-      padding 5px
-      color black
-      hover-color red true
-      cursor: pointer
-      &.active
-        color red
-  .SlideShow
+  .owl-carousel.owl-theme
     +below(767px)
-      margin: 0px auto auto
+      margin: 40px auto auto
+      .owl-controls
+        absolute top -30px
+        margin auto
+        size 100% auto
+        .owl-page
+          span
+            size 8px 8px
+            background: black
+            opacity: 1
+          &:hover
+          &.active
+            span
+              background: red
     +above(768px)
       margin: 30px auto auto
+      .owl-controls
+        absolute top -60px right 100px
+        // size 100% auto
+        margin auto
+        .owl-page
+          span
+            size 8px 8px
+            background: black
+            opacity: 1
+          &:hover
+          &.active
+            span
+              background: red

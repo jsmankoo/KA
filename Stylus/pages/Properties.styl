@@ -15,6 +15,9 @@
           span(1/4)
           relative()
           height 100px
+          +below(767px)
+            stack()
+            height 50px
           .Select
             align(b)
             cursor: pointer
@@ -41,13 +44,19 @@
             size 58px auto
         .Search
           .Select
-            size 115px auto
+            size 120px auto
             i.btr
               font-size 16px
         .Border
-          align(v)
-          size 2px 60px
-          border-left 2px solid black
+          +below(767px)
+            display: block
+            margin: auto
+            size 150px 1px
+            border-top 1px solid black
+          +above(768px)
+            align(v)
+            size 1px 60px
+            border-left 1px solid black
   .PropertiesWrapper
     center(1070px)
     padding 0px 20px
@@ -69,6 +78,8 @@
         size 540px 350px
         max-width: 100%
         relative()
+        +below(767px)
+          size 100% 250px
         .Status
           absolute bottom 0px left 0px
           background-color: rgba(red, 0.5)
